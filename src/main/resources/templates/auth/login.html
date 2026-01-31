@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::section})}">
+<body>
+
+<section class="row justify-content-center">
+    <div class="col-md-5 col-lg-4">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <h2 class="text-center mb-4">🔐 Login</h2>
+
+                <div th:if="${param.error}" class="alert alert-danger text-center">
+                    Usuário ou senha inválidos.
+                </div>
+
+                <form th:action="@{/auth/login}" method="post">
+
+                    <div class="mb-3">
+                        <label class="form-label">Usuário</label>
+                        <input type="text" class="form-control" name="username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Senha</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        Entrar
+                    </button>
+
+                </form>
+
+                <p class="text-center mt-3 mb-0">
+                    Não tem conta?
+                    <a th:href="@{/auth/register}">Criar agora</a>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::section})}">
+<body>
+
+<section class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <h2 class="text-center mb-4">📝 Criar Conta</h2>
+
+                <form th:action="@{/auth/register}" method="post" th:object="${registro}">
+
+                    <div class="mb-3">
+                        <label class="form-label">E-mail</label>
+                        <input type="email" class="form-control" th:field="*{email}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Senha</label>
+                        <input type="password" class="form-control" th:field="*{senha}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <input type="text" class="form-control" th:field="*{nome}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Telefone</label>
+                        <input type="text" class="form-control" th:field="*{telefone}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Endereço</label>
+                        <input type="text" class="form-control" th:field="*{endereco}">
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        Registrar
+                    </button>
+
+                </form>
+
+                <p class="text-center mt-3 mb-0">
+                    Já tem conta?
+                    <a th:href="@{/auth/login}">Voltar ao login</a>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

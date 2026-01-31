@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::section})}">
+<body>
+
+<section class="container my-4">
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <h2 class="card-title mb-4">Novo Pedido</h2>
+
+            <form th:action="@{/pedido}"
+                  th:object="${pedidoDTO}"
+                  method="post"
+                  id="pedidoForm">
+
+                <!-- ITENS -->
+                <h4 class="mb-3">Itens do Pedido</h4>
+
+                <div id="itens-container">
+
+                    <!-- Item inicial -->
+                    <div class="card mb-3 item-pedido" data-index="0">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <strong>Item 1</strong>
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-danger"
+                                        onclick="removerItem(this)">
+                                    Remover
+                                </button>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Descrição</label>
+                                    <input type="text"
+                                           class="form-control item-descricao"
+                                           name="itens[0].descricao"
+                                           required>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label">Quantidade</label>
+                                    <input type="number"
+                                           class="form-control item-quantidade"
+                                           name="itens[0].quantidade"
+                                           min="1"
+                                           value="1"
+                                           required>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label">Valor Unitário</label>
+                                    <input type="number"
+                                           class="form-control item-valorUnitario"
+                                           name="itens[0].valorUnitario"
+                                           step="0.01"
+                                           min="0"
+                                           value="0.00"
+                                           required>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="d-flex gap-2 my-3">
+                    <button type="button"
+                            class="btn btn-outline-primary"
+                            onclick="adicionarItem()">
+                        + Adicionar Item
+                    </button>
+                </div>
+
+                <hr>
+
+                <div class="mb-3 d-flex justify-content-end align-items-center gap-3">
+                    <div>
+                        <strong>Total: R$ <span id="total-pedido">0,00</span></strong>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success px-4">
+                            Salvar Pedido
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/js/pedido.js}"></script>
+</section>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::section})}">
+<body>
+
+<section class="p-5 mb-4 bg-light rounded-3 text-center">
+    <div class="container">
+        <h2 class="display-5 fw-bold">Pedidos</h2>
+        <p class="fs-5">Encomende salgados fresquinhos para qualquer ocasião.</p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a class="btn btn-primary btn-lg" th:href="@{/pedido/novo}">
+                Novo Pedido
+            </a>
+            <a class="btn btn-secondary btn-lg" th:href="@{/pedido/lista}">
+                Meus Pedidos
+            </a>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

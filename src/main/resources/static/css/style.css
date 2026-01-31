@@ -1,0 +1,39 @@
+/* Base global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Ajustes finos no layout */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #777;
+}
+
+/* Hero customizado (com Bootstrap por baixo) */
+.hero {
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* Pequeno reforço visual nos cards */
+.card {
+    border-radius: 8px;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+/* Tabelas (complemento do Bootstrap) */
+.table {
+    background-color: white;
+}
+
+/* Mensagens de erro simples */
+.error {
+    color: #dc3545;
+    font-weight: bold;
+}
