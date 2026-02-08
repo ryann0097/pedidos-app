@@ -73,7 +73,7 @@
                                 <i class="bi bi-cash-coin"></i>
                             </button>
 
-                            <button th:if="${!pedido.pago && pedido.statusPedido == T(com.salgados.RSalgados.dto.pedidos.StatusPedido).CRIADO}"
+                            <button th:if="${!pedido.pago && pedido.statusPedido == T(com.salgados.RSalgados.domain.pedidos.StatusPedido).CRIADO}"
                                     class="btn btn-sm btn-outline-danger"
                                     th:attr="data-id=${pedido.id}"
                                     onclick="deletarPedido(this)">
